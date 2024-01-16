@@ -27,3 +27,6 @@ jobs:
 
       - name: 'Push to Google Atrifact Registry'
         run: 'gcloud builds submit --tag us-central1-docker.pkg.dev/notely-411320/notely-ar-repo/edru2-notely:latest .'
+
+      - name: 'Deploy notely'
+        run: 'gcloud run deploy notely --image us-central1-docker.pkg.dev/notely-411320/notely-ar-repo/edru2-notely:latest --region us-central1 --allow-unauthenticated --project notely-411320 --max-isntances=4'
